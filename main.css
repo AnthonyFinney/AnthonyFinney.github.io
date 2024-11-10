@@ -107,9 +107,3 @@ canvas {
     pointer-events: none;
     z-index: -1;
 }
-
-/* Section Styles */
-section {
-    padding: 20px;
-    margin-top: 20px;
-}
