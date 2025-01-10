@@ -11,8 +11,7 @@
 </head>
 
 <body class="h-screen">
-    <div
-        class="h-screen flex flex-col lg:flex-row bg-[url('assets/concrete-wall-scratched-material-background-texture-concept2.jpg')] bg-cover bg-center">
+    <div class="h-screen flex flex-col lg:flex-row bg-[url('https://i.imgur.com/pLfUCmc.jpg')] bg-cover bg-center">
         <div class="relative flex flex-1 w-full lg:w-1/2">
             <img src="assets/test2.png"
                 class="absolute top-0 left-0 w-full h-64 mt-20 lg:mt-0 lg:h-full object-cover" />
@@ -31,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="h-screen flex flex-col lg:flex-row bg-black">
+    <div class="h-[70vh] md:min-h-screen flex flex-col lg:flex-row bg-black">
         <div class="flex flex-1 items-center justify-center">
             <h1 class="text-4xl lg:text-6xl font-normal text-[#a4b4bf] mb-8 lg:mb-32">Hello There!</h1>
         </div>
@@ -43,7 +42,8 @@
             </h1>
         </div>
     </div>
-    <div class="h-screen flex flex-col bg-[#a4b4bf]">
+    <!-- Qualifications -->
+    <div class="h-[90vh] md:min-h-screen flex flex-col bg-[#a4b4bf]">
         <div class="flex flex-1 items-start ml-6 lg:ml-20 mt-10 lg:mt-20">
             <h1 class="text-4xl lg:text-6xl font-normal text-black">Qualifications</h1>
         </div>
@@ -70,6 +70,136 @@
             </div>
         </div>
     </div>
+    <!-- Projects -->
+    <div class="min-h-screen flex flex-col bg-[#577BC1]">
+        <div class="flex items-start ml-6 lg:ml-20 mt-10 lg:mt-20">
+            <h1 class="text-4xl lg:text-6xl font-normal text-black">Projects</h1>
+        </div>
+        <div class="relative flex items-center justify-center px-6 lg:px-16 py-10">
+            <button id="prevProjectBtn"
+                class="absolute left-4 lg:left-10 text-black bg-gray-200 hover:bg-gray-300 p-2 rounded-full shadow-md"
+                aria-label="Previous project">
+                &#8249;
+            </button>
+
+            <div id="projectCarousel" class="w-full max-w-4xl overflow-hidden">
+                <div class="flex transition-transform duration-300">
+                    <div class="w-full flex-shrink-0 bg-[#F0F0D7] shadow-lg rounded-lg overflow-hidden">
+                        <div class="relative overflow-hidden sm:h-64 md:h-72">
+                            <div class="project-images flex transition-transform duration-300">
+                                <img src="assets/sportStore/pic1.png" alt="Project image 1"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                                <img src="assets/sportStore/pic2.png" alt="Project image 2"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                                <img src="assets/sportStore/pic3.png" alt="Project image 3"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                                <img src="assets/sportStore/pic4.png" alt="Project image 4"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                                <img src="assets/sportStore/pic5.png" alt="Project image 5"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                                <img src="assets/sportStore/pic6.png" alt="Project image 6"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                            </div>
+                            <button
+                                class="prevImg absolute left-2 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full"
+                                aria-label="Previous project image">
+                                &#8249;
+                            </button>
+                            <button
+                                class="nextImg absolute right-2 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full"
+                                aria-label="Next project image">
+                                &#8250;
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-2">
+                                E-commerce Website | ASP.NET Core
+                                <a href="https://github.com/AnthonyFinney/sportsstore"
+                                    class="text-blue-500 font-bold hover:text-blue-700 transition transform hover:scale-110"
+                                    target="_blank">
+                                    -> See Code
+                                </a>
+                            </h2>
+                            <p class="text-gray-700">
+                                Developed a fully functional e-commerce website following a book tutorial to deepen
+                                understanding of ASP.NET Core and Razor Pages. Implemented user authentication, product
+                                listings, shopping cart functionality, and order management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="nextProjectBtn"
+                class="absolute right-4 lg:right-10 text-black bg-gray-200 hover:bg-gray-300 p-2 rounded-full shadow-md"
+                aria-label="Next project">
+                &#8250;
+            </button>
+        </div>
+    </div>
+
+    <!-- Accomplishment -->
+    <div class="min-h-screen flex flex-col bg-[#809D3C]">
+        <div class="flex items-start ml-6 lg:ml-20 mt-10 lg:mt-20">
+            <h1 class="text-4xl lg:text-6xl font-normal text-black">Accomplishment</h1>
+        </div>
+        <div class="relative flex items-center justify-center px-6 lg:px-16 py-10">
+            <button id="prevAccomplishmentBtn"
+                class="absolute left-4 lg:left-10 text-black bg-gray-200 hover:bg-gray-300 p-2 rounded-full shadow-md"
+                aria-label="Previous accomplishment">
+                &#8249;
+            </button>
+
+            <div id="accomplishmentCarousel" class="w-full max-w-4xl overflow-hidden">
+                <div class="flex transition-transform duration-300">
+                    <div class="w-full flex-shrink-0 bg-[#F0F0D7] shadow-lg rounded-lg overflow-hidden">
+                        <div class="relative overflow-hidden sm:h-64 md:h-72">
+                            <div class="accomplishment-images flex transition-transform duration-300">
+                                <img src="assets/Accomplishment/pic1.png" alt="Certification 1 for C#"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                                <img src="assets/Accomplishment/pic2.png" alt="Certification 2 for C#"
+                                    class="w-full h-full object-cover flex-shrink-0">
+                            </div>
+                            <button
+                                class="prevAccomplishmentImg absolute left-2 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full"
+                                aria-label="Previous accomplishment image">
+                                &#8249;
+                            </button>
+                            <button
+                                class="nextAccomplishmentImg absolute right-2 top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full"
+                                aria-label="Next accomplishment image">
+                                &#8250;
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold mb-2">
+                                FOUNDATIONAL C# WITH MICROSOFT CERTIFICATION
+                                <a href="https://www.freecodecamp.org/certification/SoshieFinney/foundational-c-sharp-with-microsoft"
+                                    class="text-blue-500 font-bold hover:text-blue-700 transition transform hover:scale-110"
+                                    target="_blank">
+                                    -> See Certification
+                                </a>
+                            </h2>
+                            <p class="text-gray-700">
+                                Demonstrates proficiency in foundational concepts of C# programming, including
+                                object-oriented principles, data structures, and problem-solving techniques.
+                                This certification validates the ability to write efficient and maintainable C# code,
+                                following industry standards and best practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="nextAccomplishmentBtn"
+                class="absolute right-4 lg:right-10 text-black bg-gray-200 hover:bg-gray-300 p-2 rounded-full shadow-md"
+                aria-label="Next accomplishment">
+                &#8250;
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <div class="h-screen flex flex-col lg:flex-row">
         <div class="flex-1 items-center justify-center hidden lg:flex">
             <img src="assets/profile_pic.jpg" class="w-full h-72 lg:h-full object-cover">
@@ -96,6 +226,8 @@
             </div>
         </div>
     </div>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
