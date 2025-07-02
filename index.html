@@ -41,6 +41,7 @@
             content="https://anthonyfinney.is-a.dev/assets/social-preview.png"
         />
 
+<<<<<<< HEAD
         <link
             rel="icon"
             type="image/svg+xml"
@@ -77,4 +78,136 @@
         <div id="root"></div>
         <script type="module" src="/src/main.tsx"></script>
     </body>
+=======
+    <!-- Projects Section -->
+    <section class="py-20 bg-indigo-100" id="projects" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+        <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
+          <!-- Perfume E-commerce Project -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-xl transform transition hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-2xl font-bold mb-2">
+                Perfume E-commerce Site
+                <span
+                  class="ml-2 px-2 py-1 text-xs bg-yellow-300 text-yellow-900 rounded-full"
+                  >In Progress</span
+                >
+              </h3>
+              <p class="text-gray-700 mb-4">
+                A stylish e-commerce platform for perfumes built with Next.js
+                and TypeScript. Still under development, with features like
+                dynamic routing, filtering, and elegant UI in progress.
+              </p>
+            </div>
+            <div>
+              <a
+                href="https://project-at-six.vercel.app/"
+                target="_blank"
+                class="text-indigo-600 hover:underline font-medium"
+                >→ Visit Site</a
+              >
+            </div>
+          </div>
+
+          <!-- ASP.NET E-commerce Project -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-xl transform transition hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-2xl font-bold mb-2">E-commerce Store</h3>
+              <p class="text-gray-700 mb-4">
+                A fully functional ASP.NET Core Razor Pages web app with
+                features like authentication, cart management, product browsing
+                and admin tools.
+              </p>
+            </div>
+            <div>
+              <a
+                href="https://github.com/AnthonyFinney/sportsstore"
+                target="_blank"
+                class="text-indigo-600 hover:underline font-medium"
+                >→ View Code</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      class="py-20 bg-gray-900 text-white"
+      id="contact"
+      data-aos="fade-up"
+    >
+      <div class="max-w-4xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+        <p class="text-lg mb-8">
+          Interested in working together or have a question? Reach out!
+        </p>
+        <a
+          href="mailto:anthonyrockfinnie0@gmail.com"
+          class="inline-flex items-center px-6 py-3 bg-white text-gray-900 text-lg font-semibold rounded hover:bg-gray-200 transition"
+        >
+          <span class="mr-2">✉️</span> Email Me
+        </a>
+        <div class="flex justify-center space-x-6 mt-10 text-2xl">
+          <a
+            href="https://www.facebook.com/soshie.rock"
+            target="_blank"
+            class="hover:text-blue-500"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://github.com/AnthonyFinney"
+            target="_blank"
+            class="hover:text-white"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/soshie-finney-557361233/"
+            target="_blank"
+            class="hover:text-blue-300"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+        <a
+          href="assets/Soshie_Finney_Full_Stack_Developer_CV.pdf"
+          target="_blank"
+          class="mt-8 inline-block px-6 py-3 border border-white text-white font-semibold hover:bg-white hover:text-gray-900 transition rounded"
+        >
+          ⬇ Download Resume
+        </a>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000 });
+
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 80;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+>>>>>>> b3ae744 (8th commit)
 </html>
