@@ -1,5 +1,3 @@
-import React from "react";
-
 interface AboutMeProps {
     imageSrc: string;
     imageAlt?: string;
@@ -27,13 +25,13 @@ export default function AboutMe({
                         About Me
                     </h2>
                     <p className="text-gray-300 leading-relaxed">
-                        Hi! I’m [Your Name], a self-taught full-stack developer
-                        based in Dhaka, Bangladesh. I specialize in building
-                        responsive web apps using React, Next.js, and Tailwind
-                        CSS, with a passion for smooth animations powered by
-                        GSAP. When I’m not coding, I love exploring AI-generated
-                        graphics, refining my photography prompt engineering,
-                        and brewing the perfect cup of coffee.
+                        I'm a self-taught developer currently focused on
+                        building modern web applications using TypeScript,
+                        Next.js, and Tailwind CSS. I also have experience
+                        working with ASP.NET Core. While I initially explored
+                        game development, 3D modeling, and shaders, my recent
+                        work and interests are rooted more in frontend and
+                        full-stack web app development.
                     </p>
                 </div>
             </div>

@@ -11,12 +11,12 @@ export default function Nav({ className = "" }: NavProps) {
         <nav className={`${className} shadow`}>
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 {/* Brand / Logo */}
-                <div className="text-2xl font-bold text-gray-300">
-                    YourBrand
+                <div className="text-2xl font-bold text-gray-300 manufacturing-consent-regular">
+                    SOSHIE
                 </div>
 
                 {/* Desktop Links */}
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden md:flex space-x-8 manufacturing-consent-regular">
                     <a href="#hero" className="text-white hover:text-gray-300">
                         Home
                     </a>

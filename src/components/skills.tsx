@@ -6,19 +6,22 @@ import {
     Wind,
     Server,
     Database,
-    Zap,
+    Brackets,
+    Hash,
 } from "lucide-react";
+
+<Brackets />;
 
 export default function Skills() {
     const stacks = [
+        { name: "C#", icon: <Hash size={48} /> },
         { name: "JavaScript", icon: <Code size={48} /> },
         { name: "TypeScript", icon: <Braces size={48} /> },
-        { name: "React", icon: <Layers size={48} /> },
+        { name: "ASP.NET Core", icon: <Layers size={48} /> },
         { name: "Next.js", icon: <Package size={48} /> },
         { name: "Tailwind CSS", icon: <Wind size={48} /> },
         { name: "Node.js", icon: <Server size={48} /> },
         { name: "MongoDB", icon: <Database size={48} /> },
-        { name: "GSAP", icon: <Zap size={48} /> },
     ];
 
     return (

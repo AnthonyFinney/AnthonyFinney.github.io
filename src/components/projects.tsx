@@ -1,8 +1,37 @@
 import { Github, ExternalLink } from "lucide-react";
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+    CardFooter,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+    DialogClose,
+} from "@/components/ui/dialog";
+import {
+    Carousel,
+    CarouselItem,
+    CarouselContent,
+    CarouselPrevious,
+    CarouselNext,
+} from "@/components/ui/carousel";
 
 interface Project {
     title: string;
     description: string;
+    longDescription?: string;
+    features?: string[];
     imageSrc: string;
     tech: string[];
     codeLink: string;
@@ -11,120 +40,222 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: "EchoDB",
-        description:
-            "A full‑stack app that enables users to interact with PostgreSQL through natural language.",
-        imageSrc: "/images/echodb.png",
-        tech: ["Next.js", "PostgreSQL", "OpenAI GPT‑4o", "+3 more"],
-        codeLink: "https://github.com/username/echodb",
-        liveLink: "https://echodb.example.com",
+        title: "E-commerce Store In C#",
+        description: "A fully functional ASP.NET Core Razor Pages web app.",
+        longDescription:
+            "A fully functional ASP.NET Core Razor Pages web app with features like authentication, cart management, product browsing and admin tools.",
+        features: [
+            "Authentication",
+            "Cart management",
+            "User role management",
+            "Product browsing",
+        ],
+        imageSrc: "",
+        tech: ["C#", "JavaScript", "MySQL", "Entity Framework", "ASP.NET"],
+        codeLink: "https://github.com/AnthonyFinney/sportsstore",
+        liveLink: "",
     },
     {
-        title: "TaskPrism",
+        title: "Perfume E-commerce Site",
         description:
-            "A visual resource allocation tool built with graph coloring algorithms.",
-        imageSrc: "/images/taskprism.png",
-        tech: ["Python", "Streamlit", "NetworkX", "+4 more"],
-        codeLink: "https://github.com/username/taskprism",
-        liveLink: "https://taskprism.example.com",
-    },
-    {
-        title: "Gas Detection System",
-        description:
-            "An Arduino‑based LPG/CO alert system with real‑time LCD display.",
-        imageSrc: "/images/gas-system.png",
-        tech: ["Arduino Nano", "MQ2 Sensor", "I2C LCD", "+4 more"],
-        codeLink: "https://github.com/username/gas-detection",
+            "Built a fully responsive perfume store with filtering, dynamic routing, and SEO optimization",
+        longDescription:
+            "Built a fully responsive perfume store with filtering, dynamic routing, and SEO optimization. Implemented clean UI/UX inspired by luxury branding. Deployed on Vercel.",
+        features: [
+            "Authentication",
+            "Cart management",
+            "User role management",
+            "Product browsing",
+        ],
+        imageSrc: "/assets/Perfume E-commerce Site.png",
+        tech: [
+            "TypeScript",
+            "JavaScript",
+            "MongoDB",
+            "Zod",
+            "Next.js",
+            "Tailwind CSS",
+        ],
+        codeLink: "https://github.com/AnthonyFinney/project_at",
+        liveLink: "https://project-at-six.vercel.app/",
     },
 ];
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-20 ">
-            <div className="container mx-auto px-6">
-                <h2 className="text-4xl md:text-5xl font-bold  text-center mb-2">
+        <section id="projects" className="py-20 bg-transparent text-foreground">
+            <div className="container mx-auto px-6 relative">
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-2">
                     Featured Projects
                 </h2>
-                <p className="text-center text-gray-400 mb-8">
+                <p className="text-center mb-8 text-muted-foreground">
                     A showcase of my recent work, demonstrating my expertise in
-                    full‑stack development.
+                    full-stack development.
                 </p>
 
-                <div className="overflow-x-auto flex space-x-6 snap-x snap-mandatory pb-4 justify-center">
-                    {projects.map((proj) => (
-                        <div
-                            key={proj.title}
-                            className="snap-center flex-shrink-0 w-80 bg-gray-800 rounded-lg overflow-hidden shadow-lg"
-                        >
-                            {/* Image */}
-                            <div className="h-48 w-full bg-gray-700">
-                                <img
-                                    src={proj.imageSrc}
-                                    alt={proj.title}
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
+                <Carousel>
+                    <CarouselPrevious className="absolute -left-14 top-1/2 -translate-y-1/2 z-10" />
+                    <CarouselNext className="absolute -right-14 top-1/2 -translate-y-1/2 z-10" />
 
-                            {/* Content */}
-                            <div className="p-4 flex flex-col h-full justify-between">
-                                <div>
-                                    <h3 className="text-2xl font-semibold text-white mb-2">
-                                        {proj.title}
-                                    </h3>
-                                    <p className="text-gray-300 text-sm mb-4 line-clamp-3">
-                                        {proj.description}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {proj.tech.map((t) => (
-                                            <span
-                                                key={t}
-                                                className="text-xs bg-gray-700 text-gray-200 px-2 py-1 rounded-full"
-                                            >
-                                                {t}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Action Buttons & Details */}
-                                <div className="mt-4 border-t border-gray-700 pt-4">
-                                    <div className="flex items-center">
-                                        <a
-                                            href={proj.codeLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center text-gray-200 hover:text-white border border-gray-600 px-3 py-2 rounded-md"
-                                        >
-                                            <Github className="h-5 w-5 mr-2" />
-                                            <span className="text-sm font-medium">
-                                                Code
-                                            </span>
-                                        </a>
-                                        {proj.liveLink && (
-                                            <a
-                                                href={proj.liveLink}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="ml-4 inline-flex items-center bg-cyan-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-cyan-600 transition"
-                                            >
-                                                <ExternalLink className="h-5 w-5 mr-2" />
-                                                Live Link
-                                            </a>
+                    <CarouselContent className="-ml-2 md:-ml-4">
+                        {projects.map((proj) => (
+                            <CarouselItem
+                                key={proj.title}
+                                className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+                            >
+                                <Card className="flex flex-col h-full">
+                                    <CardHeader className="p-0">
+                                        {!!proj.imageSrc && (
+                                            <img
+                                                src={proj.imageSrc}
+                                                alt={proj.title}
+                                                className="object-cover w-full h-40"
+                                            />
                                         )}
-                                    </div>
-                                    <div className="mt-3 text-center">
-                                        <a
-                                            href="#"
-                                            className="text-gray-400 hover:text-gray-200 text-sm"
-                                        >
-                                            View More Details
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                                    </CardHeader>
+                                    <CardContent className="p-4 flex-1 flex flex-col justify-between">
+                                        <div>
+                                            <CardTitle className="text-2xl">
+                                                {proj.title}
+                                            </CardTitle>
+                                            <CardDescription className="line-clamp-3 mb-4">
+                                                {proj.description}
+                                            </CardDescription>
+                                            <div className="flex flex-wrap gap-2">
+                                                {proj.tech.map((t) => (
+                                                    <Badge key={t}>{t}</Badge>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                    <CardFooter className="flex flex-col gap-2 pt-2">
+                                        <div className="flex justify-between">
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                asChild
+                                            >
+                                                <a
+                                                    href={proj.codeLink}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center"
+                                                >
+                                                    <Github className="mr-2 h-4 w-4" />{" "}
+                                                    Code
+                                                </a>
+                                            </Button>
+                                            {proj.liveLink && (
+                                                <Button size="sm" asChild>
+                                                    <a
+                                                        href={proj.liveLink}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center"
+                                                    >
+                                                        <ExternalLink className="mr-2 h-4 w-4" />{" "}
+                                                        Live
+                                                    </a>
+                                                </Button>
+                                            )}
+                                        </div>
+
+                                        <Dialog>
+                                            <DialogTrigger asChild>
+                                                <Button
+                                                    variant="link"
+                                                    size="sm"
+                                                >
+                                                    View More Details
+                                                </Button>
+                                            </DialogTrigger>
+                                            <DialogContent className="bg-popover text-popover-foreground">
+                                                <DialogHeader>
+                                                    <DialogTitle>
+                                                        {proj.title}
+                                                    </DialogTitle>
+                                                    <DialogDescription>
+                                                        {proj.longDescription ||
+                                                            proj.description}
+                                                    </DialogDescription>
+                                                </DialogHeader>
+                                                {proj.features && (
+                                                    <div className="mt-4">
+                                                        <h4 className="text-sm font-semibold mb-2">
+                                                            Key Features
+                                                        </h4>
+                                                        <ul className="list-disc list-inside text-sm space-y-1">
+                                                            {proj.features.map(
+                                                                (feat) => (
+                                                                    <li
+                                                                        key={
+                                                                            feat
+                                                                        }
+                                                                    >
+                                                                        {feat}
+                                                                    </li>
+                                                                )
+                                                            )}
+                                                        </ul>
+                                                    </div>
+                                                )}
+                                                <div className="mt-4 flex flex-wrap gap-2">
+                                                    {proj.tech.map((t) => (
+                                                        <Badge key={t}>
+                                                            {t}
+                                                        </Badge>
+                                                    ))}
+                                                </div>
+                                                <div className="mt-6 flex space-x-4">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        asChild
+                                                    >
+                                                        <a
+                                                            href={proj.codeLink}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center"
+                                                        >
+                                                            <Github className="mr-2 h-4 w-4" />{" "}
+                                                            Code
+                                                        </a>
+                                                    </Button>
+                                                    {proj.liveLink && (
+                                                        <Button
+                                                            size="sm"
+                                                            asChild
+                                                        >
+                                                            <a
+                                                                href={
+                                                                    proj.liveLink
+                                                                }
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="flex items-center"
+                                                            >
+                                                                <ExternalLink className="mr-2 h-4 w-4" />{" "}
+                                                                Live Link
+                                                            </a>
+                                                        </Button>
+                                                    )}
+                                                </div>
+                                                <DialogFooter>
+                                                    <DialogClose asChild>
+                                                        <Button variant="outline">
+                                                            Close
+                                                        </Button>
+                                                    </DialogClose>
+                                                </DialogFooter>
+                                            </DialogContent>
+                                        </Dialog>
+                                    </CardFooter>
+                                </Card>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
             </div>
         </section>
     );

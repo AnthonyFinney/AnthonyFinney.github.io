@@ -3,15 +3,14 @@ import Beams from "./components/blocks/Backgrounds/Beams/Beams";
 import Hero from "./components/hero";
 import Nav from "./components/nav";
 import Skills from "./components/skills";
-import SelfImage from "../public/assets/profile_pic_2.png";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
 export default function App() {
     return (
-        <div className="relative w-full min-h-screen overflow-auto">
-            <div className="fixed inset-0 -z-10 pointer-events-none">
+        <div className="relative w-full min-h-screen overflow-auto dark">
+            <div className="fixed inset-0 z-10 pointer-events-none">
                 <Beams
                     beamWidth={2}
                     beamHeight={15}
@@ -28,10 +27,10 @@ export default function App() {
                 <Nav className="bg-transparent" />
             </header>
 
-            <main className="relative z-10 mt-4 px-4">
+            <main className="relative z-10 mt-4 px-4 merienda">
                 <Hero />
                 <Skills />
-                <AboutMe imageSrc={SelfImage} />
+                <AboutMe imageSrc="/assets/profile_pic_2.png" />
                 <Projects />
                 <Contact />
                 <Footer />
