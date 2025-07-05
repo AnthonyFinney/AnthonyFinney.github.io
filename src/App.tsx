@@ -1,9 +1,17 @@
+import AboutMe from "./components/aboutMe";
 import Beams from "./components/blocks/Backgrounds/Beams/Beams";
+import Hero from "./components/hero";
+import Nav from "./components/nav";
+import Skills from "./components/skills";
+import SelfImage from "../public/assets/profile_pic_2.png";
+import Projects from "./components/projects";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
 
-function App() {
+export default function App() {
     return (
-        <div>
-            <div className="w-full h-[100vh] relative">
+        <div className="relative w-full min-h-screen overflow-auto">
+            <div className="fixed inset-0 -z-10 pointer-events-none">
                 <Beams
                     beamWidth={2}
                     beamHeight={15}
@@ -14,10 +22,20 @@ function App() {
                     scale={0.2}
                     rotation={0}
                 />
-                <h1 className="text-3xl font-bold underline">Hello World</h1>
             </div>
+
+            <header className="relative z-10">
+                <Nav className="bg-transparent" />
+            </header>
+
+            <main className="relative z-10 mt-4 px-4">
+                <Hero />
+                <Skills />
+                <AboutMe imageSrc={SelfImage} />
+                <Projects />
+                <Contact />
+                <Footer />
+            </main>
         </div>
     );
 }
-
-export default App;
