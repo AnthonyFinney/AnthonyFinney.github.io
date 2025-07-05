@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
                 {/* Copyright */}
                 <div className="text-center md:text-left text-sm mb-4 md:mb-0">
-                    &copy; {new Date().getFullYear()} Niloy Finney. All rights
+                    &copy; {new Date().getFullYear()} Soshie Finney. All rights
                     reserved.
                 </div>
 
