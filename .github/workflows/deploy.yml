@@ -1,9 +1,13 @@
-name: "Build & Deploy" # <-- quotes around the &
+name: "Build & Deploy"
 
 on:
   push:
     branches:
-      - dev # <-- list syntax
+      - dev
+
+permissions:
+  contents: write
+  pages: write
 
 jobs:
   build-deploy:
@@ -14,8 +18,8 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
-        with: # <-- start a mapping block
-          node-version: 18 # <-- indent 2 spaces under `with`
+        with:
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
