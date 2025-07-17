@@ -33,6 +33,16 @@ export default function AboutMe({
                         work and interests are rooted more in frontend and
                         full-stack web app development.
                     </p>
+
+                    <div className="mt-6">
+                        <a
+                            href="/assets/Soshie_Finney_Full_Stack_Developer_CV.pdf"
+                            download
+                            className="inline-block px-6 py-2 border border-white text-white rounded-md hover:bg-white hover:text-black transition"
+                        >
+                            Resume
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

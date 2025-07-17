@@ -40,22 +40,6 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: "E-commerce Store In C#",
-        description: "A fully functional ASP.NET Core Razor Pages web app.",
-        longDescription:
-            "A fully functional ASP.NET Core Razor Pages web app with features like authentication, cart management, product browsing and admin tools.",
-        features: [
-            "Authentication",
-            "Cart management",
-            "User role management",
-            "Product browsing",
-        ],
-        imageSrc: "",
-        tech: ["C#", "JavaScript", "MySQL", "Entity Framework", "ASP.NET"],
-        codeLink: "https://github.com/AnthonyFinney/sportsstore",
-        liveLink: "",
-    },
-    {
         title: "Perfume E-commerce Site",
         description:
             "Built a fully responsive perfume store with filtering, dynamic routing, and SEO optimization",
@@ -78,6 +62,38 @@ const projects: Project[] = [
         ],
         codeLink: "https://github.com/AnthonyFinney/project_at",
         liveLink: "https://project-at-six.vercel.app/",
+    },
+    {
+        title: "Perfume & Attar Image Prompt Generator",
+        description: "Built a professional-grade image prompt generation",
+        longDescription:
+            "Built a professional-grade image prompt generation tool for luxury perfume and attar visualsusing AI.",
+        features: [
+            "customizable settings for bottle style",
+            "customizable settings for camera angle",
+            "customizable settings for lighting, environment",
+            "exportable text prompts",
+        ],
+        imageSrc: "/assets/Perfume & Attar Image Prompt Generator.png",
+        tech: ["TypeScript", "Next.js", "Tailwind CSS"],
+        codeLink: "https://github.com/AnthonyFinney/project_ad",
+        liveLink: "https://project-ad-sepia.vercel.app/",
+    },
+    {
+        title: "E-commerce Store In C#",
+        description: "A fully functional ASP.NET Core Razor Pages web app.",
+        longDescription:
+            "A fully functional ASP.NET Core Razor Pages web app with features like authentication, cart management, product browsing and admin tools.",
+        features: [
+            "Authentication",
+            "Cart management",
+            "User role management",
+            "Product browsing",
+        ],
+        imageSrc: "",
+        tech: ["C#", "JavaScript", "MySQL", "Entity Framework", "ASP.NET"],
+        codeLink: "https://github.com/AnthonyFinney/sportsstore",
+        liveLink: "",
     },
 ];
 
