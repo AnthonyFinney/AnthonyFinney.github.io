@@ -40,6 +40,18 @@ interface Project {
 
 const projects: Project[] = [
     {
+        title: "Animated Web Landing Page (GSAP & React)",
+        description:
+            "Built a responsive, animated landing page using GSAP (GreenSock Animation Platform) and React",
+        longDescription:
+            "Built a responsive, animated landing page using GSAP (GreenSock Animation Platform) and React. Followed best practices in animation timing, scroll triggers, and component structure. Based on the tutorial by JavaScript Mastery, with custom modifications to layout and styling.",
+        features: ["Animation"],
+        imageSrc: "/assets/Animated Web Landing Page (GSAP & React).png",
+        tech: ["TypeScript", "React", "Tailwind CSS"],
+        codeLink: "https://github.com/AnthonyFinney/gsap_learn",
+        liveLink: "https://gsap-learn-pied.vercel.app/",
+    },
+    {
         title: "Perfume E-commerce Site",
         description:
             "Built a fully responsive perfume store with filtering, dynamic routing, and SEO optimization",
