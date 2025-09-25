@@ -1,5 +1,5 @@
-import TextType from "../components/anim/textType";
 import { SiGithub, SiLinkedin } from "react-icons/si";
+import TextType from "../components/textType";
 
 interface HeroProps {
     imageSrc: string;
