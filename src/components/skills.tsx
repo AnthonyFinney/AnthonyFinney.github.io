@@ -1,27 +1,74 @@
 import {
-    Code,
-    Braces,
-    Layers,
-    Package,
-    Wind,
-    Server,
-    Database,
-    Brackets,
-    Hash,
-} from "lucide-react";
+    SiReact,
+    SiNextdotjs,
+    SiTypescript,
+    SiTailwindcss,
+    SiGithub,
+    SiNodedotjs,
+    SiMongodb,
+    SiJavascript,
+    SiSharp,
+    SiDotnet,
+} from "react-icons/si";
+import LogoLoop from "./LogoLoop";
 
-<Brackets />;
+const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    {
+        node: <SiTypescript />,
+        title: "TypeScript",
+        href: "https://www.typescriptlang.org",
+    },
+    {
+        node: <SiTailwindcss />,
+        title: "Tailwind CSS",
+        href: "https://tailwindcss.com",
+    },
+    {
+        node: <SiGithub />,
+        title: "Github",
+        href: "https://github.com/",
+    },
+    {
+        node: <SiNodedotjs />,
+        title: "Node.js",
+        href: "https://nodejs.org/",
+    },
+    {
+        node: <SiMongodb />,
+        title: "MongoDB",
+        href: "https://www.mongodb.com",
+    },
+    {
+        node: <SiJavascript />,
+        title: "JavaScript",
+        href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
+    {
+        node: <SiSharp />,
+        title: "C#",
+        href: "https://dotnet.microsoft.com/en-us/languages/csharp",
+    },
+    {
+        node: <SiDotnet />,
+        title: "ASP.NET Core",
+        href: "https://asp.net/",
+    },
+];
 
 export default function Skills() {
     const stacks = [
-        { name: "C#", icon: <Hash size={48} /> },
-        { name: "JavaScript", icon: <Code size={48} /> },
-        { name: "TypeScript", icon: <Braces size={48} /> },
-        { name: "ASP.NET Core", icon: <Layers size={48} /> },
-        { name: "Next.js", icon: <Package size={48} /> },
-        { name: "Tailwind CSS", icon: <Wind size={48} /> },
-        { name: "Node.js", icon: <Server size={48} /> },
-        { name: "MongoDB", icon: <Database size={48} /> },
+        { name: "C#", icon: <SiSharp size={48} /> },
+        { name: "JavaScript", icon: <SiJavascript size={48} /> },
+        { name: "TypeScript", icon: <SiTypescript size={48} /> },
+        { name: "ASP.NET Core", icon: <SiDotnet size={48} /> },
+        { name: "React", icon: <SiReact size={48} /> },
+        { name: "Next.js", icon: <SiNextdotjs size={48} /> },
+        { name: "Node.js", icon: <SiNodedotjs size={48} /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss size={48} /> },
+        { name: "MongoDB", icon: <SiMongodb size={48} /> },
+        { name: "Github", icon: <SiGithub size={48} /> },
     ];
 
     return (
@@ -42,6 +89,20 @@ export default function Skills() {
                             </span>
                         </div>
                     ))}
+                </div>
+                <div className="bg-neutral-300 mt-9">
+                    <LogoLoop
+                        logos={techLogos}
+                        speed={120}
+                        direction="left"
+                        logoHeight={48}
+                        gap={40}
+                        pauseOnHover
+                        scaleOnHover
+                        fadeOut
+                        fadeOutColor="#ffffff"
+                        ariaLabel="Technology partners"
+                    />
                 </div>
             </div>
         </section>

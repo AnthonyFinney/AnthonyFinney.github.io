@@ -8,13 +8,11 @@ export default function Nav({ className = "" }: NavProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className={`${className} shadow`}>
+        <nav className={`${className} shadow manufacturing-consent-regular`}>
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                <div className="text-2xl font-bold text-gray-300 manufacturing-consent-regular">
-                    SOSHIE
-                </div>
+                <div className="text-2xl font-bold text-gray-300 ">SOSHIE</div>
 
-                <div className="hidden md:flex space-x-8 manufacturing-consent-regular">
+                <div className="hidden md:flex space-x-8">
                     <a href="#hero" className="text-white hover:text-gray-300">
                         Home
                     </a>

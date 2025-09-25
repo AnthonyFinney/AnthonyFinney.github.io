@@ -28,9 +28,9 @@ export default function App() {
             </header>
 
             <main className="relative z-10 mt-4 px-4 merienda">
-                <Hero />
+                <Hero imageSrc="/assets/profile_pic_2.png" />
                 <Skills />
-                <AboutMe imageSrc="/assets/profile_pic_2.png" />
+                <AboutMe />
                 <Projects />
                 <Contact />
                 <Footer />

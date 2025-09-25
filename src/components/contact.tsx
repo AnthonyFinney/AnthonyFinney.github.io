@@ -32,7 +32,6 @@ export default function Contact() {
         "idle"
     );
 
-    // Initialize EmailJS
     useEffect(() => {
         init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
     }, []);
@@ -71,7 +70,6 @@ export default function Contact() {
     return (
         <section id="contact" className="py-20">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Contact Info */}
                 <Card>
                     <CardHeader>
                         <CardTitle>Get In Touch</CardTitle>
@@ -106,7 +104,6 @@ export default function Contact() {
                     </CardContent>
                 </Card>
 
-                {/* Contact Form */}
                 <Card>
                     <CardHeader>
                         <CardTitle>Send a Message</CardTitle>
