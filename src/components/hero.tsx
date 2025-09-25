@@ -48,7 +48,7 @@ export default function Hero({
                     </h1>
 
                     <p className="mt-4 text-lg md:text-2xl text-gray-200">
-                        Software Developer
+                        Full-Stack Developer
                     </p>
                     <p className="mt-4 text-sm md:text-base text-gray-200">
                         Trying to make everything
