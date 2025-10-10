@@ -1,0 +1,60 @@
+{
+  "name": "Soshie Finney - Full-Stack Developer",
+  "short_name": "Soshe Dev",
+  "id": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "description": "Portfolio of Soshie Finney - apps, skills, and contact.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    {
+      "src": "/assets/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "Jump to featured projects",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "/assets/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/assets/star_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/social-preview.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["portfolio", "productivity", "development"]
+}
+
