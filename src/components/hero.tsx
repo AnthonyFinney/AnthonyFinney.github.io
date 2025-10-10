@@ -28,7 +28,8 @@ export default function Hero({
 
                 <div className="max-w-2xl text-center md:text-left">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-                        Hi, I&apos;m <span> </span>
+                        <span>Hi, I&apos;m</span>
+                        <br />
                         <span className="inline-block align-baseline lg:min-w-[8ch] font-fallback">
                             {"{"}
                             <TextType
