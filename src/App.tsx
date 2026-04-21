@@ -27,7 +27,7 @@ export default function App() {
                 <Nav className="bg-transparent" />
             </header>
 
-            <main className="relative z-10 mt-4 px-4 merienda">
+            <main className="relative z-10 mt-4 merienda">
                 <Hero imageSrc="/assets/profile_pic_2.png" />
                 <Skills />
                 <AboutMe />

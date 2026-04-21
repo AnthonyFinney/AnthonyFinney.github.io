@@ -75,6 +75,37 @@ const projects: Project[] = [
         liveLink: "https://project-at-six.vercel.app/",
     },
     {
+        title: "CAS Cal",
+        description: "A professional Computer Algebra System (CAS)",
+        longDescription:
+            "A professional Computer Algebra System (CAS) for students. Symbolic math, graphing, Fourier visualization.",
+        features: ["Calculadora CAS", "Gráficas", "Ecuaciones", "Matrices"],
+        imageSrc: "/assets/Cal.png",
+        tech: ["TypeScript", "React", "Tailwind CSS"],
+        codeLink: "https://github.com/AnthonyFinney/project-cal",
+        liveLink: "https://project-cal-eta.vercel.app/",
+    },
+    {
+        title: "Moonboard Admin Dashboard",
+        description:
+            "An open-source admin dashboard template built with Next.js 15 and Shadcn/ui.",
+        longDescription:
+            "an open-source admin dashboard template built with Next.js 15 and Shadcn/ui components for scalable, user-friendly web apps.",
+        features: [
+            "Authentication",
+            "Cart management",
+            "User role management",
+            "Product browsing",
+            "Accessible",
+            "Responsive",
+        ],
+        imageSrc: "/assets/Board.png",
+        tech: ["TypeScript", "Next.js", "Tailwind CSS"],
+        codeLink: "https://github.com/AnthonyFinney/project-board",
+        liveLink:
+            "https://project-board-gilt.vercel.app/en/dashboards/analytics",
+    },
+    {
         title: "Perfume & Attar Image Prompt Generator",
         description: "Built a professional-grade image prompt generation",
         longDescription:
@@ -112,42 +143,42 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="relative py-24 px-4 sm:px-6 bg-[#08060e] text-[#f8f4e6] overflow-hidden"
+            className="relative py-16 px-4 sm:px-6 bg-transparent text-[#f8f4e6] overflow-hidden"
         >
             <div className="pointer-events-none absolute inset-0 opacity-30">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(201,166,70,0.22),transparent_55%)]" />
                 <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-[#c9a646]/40 to-transparent" />
                 <div className="absolute inset-8 border border-[#c9a646]/20" />
             </div>
-            <div className="container relative mx-auto max-w-6xl">
-                <div className="text-center space-y-4 mb-14">
+            <div className="container relative mx-auto max-w-7xl">
+                <div className="text-center space-y-3 mb-10">
                     <div className="flex items-center justify-center gap-4 text-xs tracking-[0.6em] uppercase text-[#c9a646]">
                         <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#c9a646]" />
                         Curated Work
                         <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#c9a646]" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-semibold tracking-[0.08em]">
+                    <h2 className="text-3xl md:text-4xl font-semibold tracking-[0.08em]">
                         Projects Gallery
                     </h2>
-                    <p className="max-w-3xl mx-auto text-base text-[#d7c9a3]">
+                    <p className="max-w-2xl mx-auto text-sm text-[#d7c9a3]">
                         A collection of experiences crafted with precision,
                         symmetry, and modern engineering.
                     </p>
                 </div>
 
                 <Carousel className="relative">
-                    <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 h-12 w-12 border border-[#c9a646]/60 rounded-none bg-[#0b0b14]/80 text-[#f8f4e6] hover:bg-[#c9a646]/20" />
-                    <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 h-12 w-12 border border-[#c9a646]/60 rounded-none bg-[#0b0b14]/80 text-[#f8f4e6] hover:bg-[#c9a646]/20" />
+                    <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 hidden lg:flex h-12 w-12 border border-[#c9a646]/60 rounded-none bg-[#0b0b14]/80 text-[#f8f4e6] hover:bg-[#c9a646]/20" />
+                    <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 hidden lg:flex h-12 w-12 border border-[#c9a646]/60 rounded-none bg-[#0b0b14]/80 text-[#f8f4e6] hover:bg-[#c9a646]/20" />
 
-                    <CarouselContent className="-ml-3 md:-ml-5">
+                    <CarouselContent className="-ml-3 md:-ml-4">
                         {projects.map((proj) => (
                             <CarouselItem
                                 key={proj.title}
-                                className="pl-3 md:pl-5 basis-full md:basis-1/2 lg:basis-1/3"
+                                className="pl-3 md:pl-4 basis-full md:basis-1/3 lg:basis-1/4"
                             >
                                 <Card className="group flex h-full flex-col overflow-hidden border border-[#c9a646]/30 bg-gradient-to-b from-[#161527]/95 to-[#08050f]/90 text-[#f8f4e6] shadow-[0_15px_40px_rgba(0,0,0,0.55)]">
                                     <CardHeader className="relative p-0">
-                                        <div className="relative h-48 overflow-hidden">
+                                        <div className="relative h-32 overflow-hidden">
                                             {proj.imageSrc ? (
                                                 <img
                                                     src={proj.imageSrc}
@@ -155,59 +186,57 @@ export default function Projects() {
                                                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                                 />
                                             ) : (
-                                                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0e0b22] via-[#201338] to-[#08050f] text-xs uppercase tracking-[0.6em] text-[#c9a646]/70">
-                                                    {proj.title
-                                                        .slice(0, 6)
-                                                        .toUpperCase()}
+                                                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0e0b22] via-[#201338] to-[#08050f] text-[10px] uppercase tracking-[0.4em] text-[#c9a646]/70 text-center px-2">
+                                                    {proj.title}
                                                 </div>
                                             )}
-                                            <span className="absolute top-4 right-4 border border-[#c9a646]/40 bg-[#05030a]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.5em] text-[#2e9faa]">
+                                            <span className="absolute top-2 right-2 border border-[#c9a646]/40 bg-[#05030a]/70 px-2 py-0.5 text-[8px] font-semibold uppercase tracking-[0.3em] text-[#2e9faa]">
                                                 Deco
                                             </span>
                                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#05030a]/80 via-transparent to-transparent" />
                                         </div>
                                     </CardHeader>
-                                    <CardContent className="flex flex-1 flex-col gap-5 p-6">
-                                        <div className="space-y-3">
-                                            <CardTitle className="text-2xl font-semibold tracking-[0.05em]">
+                                    <CardContent className="flex flex-1 flex-col gap-3 p-4">
+                                        <div className="space-y-1">
+                                            <CardTitle className="text-lg font-semibold tracking-[0.05em] leading-tight">
                                                 {proj.title}
                                             </CardTitle>
-                                            <CardDescription className="text-sm text-[#d7c9a3]">
+                                            <CardDescription className="text-xs text-[#d7c9a3] line-clamp-2">
                                                 {proj.description}
                                             </CardDescription>
                                         </div>
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="flex flex-wrap gap-1.5">
                                             {proj.tech.map((t) => (
                                                 <Badge
                                                     key={t}
-                                                    className="rounded-none border border-[#c9a646]/40 bg-transparent px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-[#c9a646]"
+                                                    className="rounded-none border border-[#c9a646]/40 bg-transparent px-2 py-0.5 text-[9px] uppercase tracking-[0.2em] text-[#c9a646]"
                                                 >
                                                     {t}
                                                 </Badge>
                                             ))}
                                         </div>
-                                        <div className="mt-auto space-y-3">
-                                            <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.5em] text-[#a7987a]">
+                                        <div className="mt-auto space-y-2">
+                                            <div className="flex items-center justify-between text-[8px] uppercase tracking-[0.4em] text-[#a7987a]">
                                                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c9a646]/40 to-[#c9a646]" />
-                                                <span className="px-4">
+                                                <span className="px-2">
                                                     Featured
                                                 </span>
                                                 <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#c9a646]/40 to-[#c9a646]" />
                                             </div>
-                                            <div className="flex items-center justify-between gap-3">
+                                            <div className="flex items-center justify-between gap-2">
                                                 <Button
                                                     variant="outline"
                                                     size="sm"
                                                     asChild
-                                                    className="flex-1 rounded-none border border-[#c9a646]/70 bg-transparent text-[#f8f4e6] hover:bg-[#c9a646]/15"
+                                                    className="h-8 flex-1 rounded-none border border-[#c9a646]/70 bg-transparent text-[#f8f4e6] hover:bg-[#c9a646]/15 px-2"
                                                 >
                                                     <a
                                                         href={proj.codeLink}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="flex items-center justify-center gap-2 text-xs tracking-[0.3em]"
+                                                        className="flex items-center justify-center gap-1.5 text-[10px] tracking-[0.2em]"
                                                     >
-                                                        <Github className="h-4 w-4" />
+                                                        <Github className="h-3.5 w-3.5" />
                                                         Code
                                                     </a>
                                                 </Button>
@@ -215,17 +244,15 @@ export default function Projects() {
                                                     <Button
                                                         size="sm"
                                                         asChild
-                                                        className="flex-1 rounded-none border border-transparent bg-[#c9a646]/80 text-[#08060e] hover:bg-[#c9a646]"
+                                                        className="h-8 flex-1 rounded-none border border-transparent bg-[#c9a646]/80 text-[#08060e] hover:bg-[#c9a646] px-2"
                                                     >
                                                         <a
-                                                            href={
-                                                                proj.liveLink
-                                                            }
+                                                            href={proj.liveLink}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="flex items-center justify-center gap-2 text-xs tracking-[0.3em]"
+                                                            className="flex items-center justify-center gap-1.5 text-[10px] tracking-[0.2em]"
                                                         >
-                                                            <ExternalLink className="h-4 w-4" />
+                                                            <ExternalLink className="h-3.5 w-3.5" />
                                                             Live
                                                         </a>
                                                     </Button>
@@ -236,9 +263,9 @@ export default function Projects() {
                                                     <Button
                                                         variant="link"
                                                         size="sm"
-                                                        className="w-full rounded-none text-[#2e9faa] underline-offset-4 transition-colors hover:text-[#f8f4e6]"
+                                                        className="h-auto py-0 w-full rounded-none text-[#2e9faa] underline-offset-4 transition-colors hover:text-[#f8f4e6] text-[10px] tracking-[0.1em]"
                                                     >
-                                                        View More Details
+                                                        Details
                                                     </Button>
                                                 </DialogTrigger>
                                                 <DialogContent className="max-w-2xl border border-[#c9a646]/30 bg-[#0b0b16]/95 text-[#f8f4e6]">
@@ -272,7 +299,7 @@ export default function Projects() {
                                                                                 }
                                                                             </span>
                                                                         </li>
-                                                                    )
+                                                                    ),
                                                                 )}
                                                             </ul>
                                                         </div>

@@ -61,61 +61,61 @@ export default function Skills() {
     const stacks = [
         {
             name: "C#",
-            icon: <SiSharp size={44} />,
+            icon: <SiSharp size={32} />,
             category: "Language",
             description: "Enterprise-grade backbone I lean on for strongly typed service layers.",
         },
         {
             name: "JavaScript",
-            icon: <SiJavascript size={44} />,
+            icon: <SiJavascript size={32} />,
             category: "Language",
             description: "Universal glue for browser ergonomics, prototypes, and micro-interactions.",
         },
         {
             name: "TypeScript",
-            icon: <SiTypescript size={44} />,
+            icon: <SiTypescript size={32} />,
             category: "Language",
             description: "Type-safe iteration that keeps sprawling UI work predictable.",
         },
         {
             name: "ASP.NET Core",
-            icon: <SiDotnet size={44} />,
+            icon: <SiDotnet size={32} />,
             category: "Framework",
             description: "High-performance web host I pair with C# for APIs and background workers.",
         },
         {
             name: "React",
-            icon: <SiReact size={44} />,
+            icon: <SiReact size={32} />,
             category: "Framework",
             description: "Component model I use to sculpt interactive layouts and state flows.",
         },
         {
             name: "Next.js",
-            icon: <SiNextdotjs size={44} />,
+            icon: <SiNextdotjs size={32} />,
             category: "Framework",
             description: "Hybrid rendering stack for polished, SEO-friendly web applications.",
         },
         {
             name: "Node.js",
-            icon: <SiNodedotjs size={44} />,
+            icon: <SiNodedotjs size={32} />,
             category: "Runtime",
             description: "Event-driven runtime powering orchestration layers and build tooling.",
         },
         {
             name: "Tailwind CSS",
-            icon: <SiTailwindcss size={44} />,
+            icon: <SiTailwindcss size={32} />,
             category: "Styling",
             description: "Utility-first palette that keeps typography, spacing, and motion cohesive.",
         },
         {
             name: "MongoDB",
-            icon: <SiMongodb size={44} />,
+            icon: <SiMongodb size={32} />,
             category: "Database",
             description: "Document store I reach for when schemas need to stay flexible yet fast.",
         },
         {
             name: "Github",
-            icon: <SiGithub size={44} />,
+            icon: <SiGithub size={32} />,
             category: "Collaboration",
             description: "Collaboration nerve center for code reviews, automation, and releases.",
         },
@@ -153,28 +153,34 @@ export default function Skills() {
                 </div>
 
                 <div className="relative mt-16">
-                    <div className="absolute -inset-6 rounded-[36px] border border-[#d9c38c]/25 opacity-60" />
-                    <div className="absolute -inset-[3px] rounded-[34px] border border-[#2e9faa]/20 opacity-40" />
-                    <div className="relative rounded-[32px] border border-white/10 bg-transparent px-6 py-10 shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div className="absolute -inset-3 md:-inset-6 rounded-[36px] border border-[#d9c38c]/25 opacity-60" />
+                    <div className="absolute -inset-[2px] md:-inset-[3px] rounded-[34px] border border-[#2e9faa]/20 opacity-40" />
+                    <div className="relative rounded-[32px] border border-white/10 bg-transparent px-4 py-8 md:px-6 md:py-10 shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                             {stacks.map((tech) => (
                                 <div
                                     key={tech.name}
-                                    className="group relative overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-b from-[#1b2336]/70 via-[#111726] to-[#080b13] px-8 py-10 text-center shadow-[0_15px_40px_rgba(0,0,0,0.35)] transition duration-300 hover:border-[#d9c38c]/50"
+                                    className="group relative overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-[#1b2336]/70 via-[#111726] to-[#080b13] px-4 py-6 text-center shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition duration-300 hover:border-[#d9c38c]/50 hover:-translate-y-1"
                                 >
                                     <div className="absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-80 bg-[radial-gradient(circle_at_top,_rgba(217,195,140,0.35),_transparent_65%)]" />
-                                    <div className="relative flex flex-col items-center gap-4">
-                                        <div className="text-[#d9c38c] drop-shadow-[0_0_12px_rgba(217,195,140,0.35)]">
+                                    
+                                    {/* Hover Description Overlay */}
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#080b13]/90 flex items-center justify-center px-4 py-2 z-10">
+                                        <p className="text-[11px] text-gray-200 leading-snug">
+                                            {tech.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="relative flex flex-col items-center gap-3">
+                                        <div className="text-[#d9c38c] drop-shadow-[0_0_8px_rgba(217,195,140,0.35)]">
                                             {tech.icon}
                                         </div>
-                                        <span className="text-sm uppercase tracking-[0.5em] text-[#2e9faa]/80">
-                                            {tech.category}
-                                        </span>
-                                        <p className="text-2xl font-serif">{tech.name}</p>
-                                        <span className="w-12 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-                                        <p className="text-sm text-gray-300">
-                                            {tech.description ?? "Craft refined through geometric rigor."}
-                                        </p>
+                                        <div className="flex flex-col items-center">
+                                            <span className="text-[10px] uppercase tracking-[0.2em] text-[#2e9faa]/80 mb-1">
+                                                {tech.category}
+                                            </span>
+                                            <p className="text-lg font-serif leading-tight">{tech.name}</p>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -191,8 +197,8 @@ export default function Skills() {
                             logos={techLogos}
                             speed={130}
                             direction="left"
-                            logoHeight={48}
-                            gap={48}
+                            logoHeight={window.innerWidth < 768 ? 32 : 48}
+                            gap={window.innerWidth < 768 ? 24 : 48}
                             pauseOnHover
                             scaleOnHover
                             fadeOut

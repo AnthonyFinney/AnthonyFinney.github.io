@@ -43,10 +43,8 @@ export default function Nav({ className = "" }: NavProps) {
 
             <div className="container mx-auto px-5 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4 text-[#d9c38c]">
-                    <span className="text-sm tracking-[0.65em] uppercase">saf</span>
-                    <span className="w-10 h-px bg-[#d9c38c]/70" />
-                    <span className="text-2xl font-semibold text-white font-serif tracking-[0.3em]">
-                        SOSHIE
+                    <span className="text-sm tracking-[0.65em] uppercase">
+                        saf
                     </span>
                 </div>
 
@@ -75,7 +73,10 @@ export default function Nav({ className = "" }: NavProps) {
                                 <span
                                     key={index}
                                     className="absolute left-0 top-1/2 block h-[2px] w-full origin-center bg-current transition-all duration-300 ease-out"
-                                    style={{ transform: bar.transform, opacity: bar.opacity }}
+                                    style={{
+                                        transform: bar.transform,
+                                        opacity: bar.opacity,
+                                    }}
                                 />
                             ))}
                         </span>
