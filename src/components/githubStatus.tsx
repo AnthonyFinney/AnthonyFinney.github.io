@@ -134,16 +134,18 @@ export default function GithubStatus() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.3)] p-8 rounded-[32px] flex flex-col items-center overflow-x-auto w-full"
+                            className="border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.3)] p-4 md:p-8 rounded-[32px] w-full overflow-hidden"
                         >
-                            <div className="w-full p-2 flex justify-center text-sm md:text-base">
-                                <GitHubCalendar 
-                                    username="AnthonyFinney" 
-                                    colorScheme="dark"
-                                    fontSize={14}
-                                    blockSize={14}
-                                    blockMargin={5}
-                                />
+                            <div className="w-full overflow-x-auto pb-4">
+                                <div className="w-max min-w-full flex justify-center p-2 text-sm md:text-base">
+                                    <GitHubCalendar 
+                                        username="AnthonyFinney" 
+                                        colorScheme="dark"
+                                        fontSize={14}
+                                        blockSize={14}
+                                        blockMargin={5}
+                                    />
+                                </div>
                             </div>
                         </motion.div>
                     </div>

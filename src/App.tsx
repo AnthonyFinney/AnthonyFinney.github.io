@@ -10,12 +10,12 @@ import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
-function RevealSection({ children }: { children: ReactNode }) {
+function CinematicRevealSection({ children }: { children: ReactNode }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 30, x: -10 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ amount: "some", margin: "-8% 0px -8% 0px" }}
             className="reveal-section"
         >
@@ -42,32 +42,37 @@ export default function App() {
                 />
             </div>
 
-            <header className="relative z-10">
+            <motion.header
+                className="relative z-10"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+            >
                 <Nav className="bg-transparent" />
-            </header>
+            </motion.header>
 
             <main className="relative z-10 mt-4 merienda">
-                <RevealSection>
+                <CinematicRevealSection>
                     <Hero imageSrc="/assets/profile_pic_2.png" />
-                </RevealSection>
-                <RevealSection>
+                </CinematicRevealSection>
+                <CinematicRevealSection>
                     <GithubStatus />
-                </RevealSection>
-                <RevealSection>
+                </CinematicRevealSection>
+                <CinematicRevealSection>
                     <Skills />
-                </RevealSection>
-                <RevealSection>
+                </CinematicRevealSection>
+                <CinematicRevealSection>
                     <AboutMe />
-                </RevealSection>
-                <RevealSection>
+                </CinematicRevealSection>
+                <CinematicRevealSection>
                     <Projects />
-                </RevealSection>
-                <RevealSection>
+                </CinematicRevealSection>
+                <CinematicRevealSection>
                     <Contact />
-                </RevealSection>
-                <RevealSection>
+                </CinematicRevealSection>
+                <CinematicRevealSection>
                     <Footer />
-                </RevealSection>
+                </CinematicRevealSection>
             </main>
         </div>
     );
