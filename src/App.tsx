@@ -1,48 +1,31 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, type ReactNode } from "react";
+import { motion } from "framer-motion";
 import AboutMe from "./components/aboutMe";
 import Beams from "./components/blocks/Backgrounds/Beams/Beams";
 import Hero from "./components/hero";
+import GithubStatus from "./components/githubStatus";
 import Nav from "./components/nav";
 import Skills from "./components/skills";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
-gsap.registerPlugin(ScrollTrigger);
+function RevealSection({ children }: { children: ReactNode }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ amount: "some", margin: "-8% 0px -8% 0px" }}
+            className="reveal-section"
+        >
+            {children}
+        </motion.div>
+    );
+}
 
 export default function App() {
     const mainRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const sections = gsap.utils.toArray<HTMLElement>(".reveal-section");
-
-            sections.forEach((section) => {
-                gsap.fromTo(
-                    section,
-                    { autoAlpha: 0, y: 20 },
-                    {
-                        autoAlpha: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: "power1.out",
-                        scrollTrigger: {
-                            trigger: section,
-                            start: "top 92%",
-                            end: "bottom 8%",
-                            toggleActions: "play reverse play reverse",
-                            // Using scrub: false but keeping it light
-                            invalidateOnRefresh: true,
-                        },
-                    }
-                );
-            });
-        }, mainRef);
-
-        return () => ctx.revert();
-    }, []);
 
     return (
         <div className="relative w-full min-h-screen overflow-x-hidden dark" ref={mainRef}>
@@ -64,24 +47,27 @@ export default function App() {
             </header>
 
             <main className="relative z-10 mt-4 merienda">
-                <div className="reveal-section">
+                <RevealSection>
                     <Hero imageSrc="/assets/profile_pic_2.png" />
-                </div>
-                <div className="reveal-section">
+                </RevealSection>
+                <RevealSection>
+                    <GithubStatus />
+                </RevealSection>
+                <RevealSection>
                     <Skills />
-                </div>
-                <div className="reveal-section">
+                </RevealSection>
+                <RevealSection>
                     <AboutMe />
-                </div>
-                <div className="reveal-section">
+                </RevealSection>
+                <RevealSection>
                     <Projects />
-                </div>
-                <div className="reveal-section">
+                </RevealSection>
+                <RevealSection>
                     <Contact />
-                </div>
-                <div className="reveal-section">
+                </RevealSection>
+                <RevealSection>
                     <Footer />
-                </div>
+                </RevealSection>
             </main>
         </div>
     );
