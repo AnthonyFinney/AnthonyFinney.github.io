@@ -28,7 +28,7 @@ export default function App() {
     const mainRef = useRef<HTMLDivElement>(null);
 
     return (
-        <div className="relative w-full min-h-screen overflow-x-hidden dark" ref={mainRef}>
+        <div className="relative w-full min-h-screen dark" ref={mainRef}>
             <div className="fixed inset-0 z-10 pointer-events-none">
                 <Beams
                     beamWidth={2}
