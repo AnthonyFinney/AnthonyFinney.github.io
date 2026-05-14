@@ -45,7 +45,11 @@ export default function Projects() {
 
                             {/* Project Details */}
                             <div className="flex flex-col flex-grow p-6">
-                                <h3 className="text-xl font-bold text-foreground mb-2">{proj.title}</h3>
+                                <h3 className="text-xl font-bold text-foreground mb-2">
+                                    <a href={proj.liveLink || proj.codeLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                        {proj.title}
+                                    </a>
+                                </h3>
                                 <p className="text-sm text-muted-foreground line-clamp-2 mb-4 leading-relaxed">
                                     {proj.description}
                                 </p>
