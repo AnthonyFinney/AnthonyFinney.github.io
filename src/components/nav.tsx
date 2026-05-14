@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 interface NavProps {
     className?: string;
@@ -6,106 +8,96 @@ interface NavProps {
 
 export default function Nav({ className = "" }: NavProps) {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+            setIsOpen(false);
+        }
+    };
 
     const links = [
         { href: "#hero", label: "Home" },
-        { href: "#skills", label: "Skills" },
         { href: "#about", label: "About" },
         { href: "#projects", label: "Projects" },
         { href: "#contact", label: "Contact" },
     ];
 
-    const barStyles = [
-        {
-            transform: isOpen
-                ? "translateY(-50%) rotate(45deg)"
-                : "translateY(-50%) translateY(-0.35rem)",
-            opacity: 1,
-        },
-        {
-            transform: "translateY(-50%)",
-            opacity: isOpen ? 0 : 1,
-        },
-        {
-            transform: isOpen
-                ? "translateY(-50%) rotate(-45deg)"
-                : "translateY(-50%) translateY(0.35rem)",
-            opacity: 1,
-        },
-    ];
-
     return (
-        <nav
-            className={`${className} relative z-20 bg-[#070b13]/80 border-b border-white/10 backdrop-blur-xl`}
+        <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-6"} ${className}`}
         >
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d9c38c]/50 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#2e9faa]/50 to-transparent" />
+            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+                
+                {/* Logo */}
+                <a 
+                    href="#hero" 
+                    onClick={(e) => handleScrollTo(e, "#hero")}
+                    className="text-xl font-bold tracking-tighter text-foreground z-50"
+                >
+                    SAF
+                </a>
 
-            <div className="container mx-auto px-5 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-4 text-[#d9c38c]">
-                    <span className="text-sm tracking-[0.65em] uppercase">
-                        saf
-                    </span>
-                </div>
-
-                <div className="hidden md:flex items-center gap-10 tracking-[0.25em] text-xs uppercase">
+                {/* Desktop Links (Pill) */}
+                <div className="hidden md:flex items-center gap-8 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-8 py-3">
                     {links.map((link) => (
                         <a
                             key={link.href}
                             href={link.href}
-                            className="text-gray-200 transition hover:text-[#d9c38c]"
+                            onClick={(e) => handleScrollTo(e, link.href)}
+                            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
                         >
                             {link.label}
                         </a>
                     ))}
                 </div>
 
-                <div className="md:hidden">
+                {/* Mobile Menu */}
+                <div className="flex items-center gap-4 z-50">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="group relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm border border-[#d9c38c]/60 text-[#d9c38c]"
-                        aria-label="Toggle menu"
-                        aria-expanded={isOpen}
+                        className="md:hidden p-2 text-foreground"
                     >
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="pointer-events-none relative block h-4 w-5">
-                            {barStyles.map((bar, index) => (
-                                <span
-                                    key={index}
-                                    className="absolute left-0 top-1/2 block h-[2px] w-full origin-center bg-current transition-all duration-300 ease-out"
-                                    style={{
-                                        transform: bar.transform,
-                                        opacity: bar.opacity,
-                                    }}
-                                />
-                            ))}
-                        </span>
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </div>
 
-            <div
-                className={`md:hidden border-t bg-[#05060b]/95 px-5 text-xs tracking-[0.3em] uppercase transition-all duration-300 ease-out space-y-3 overflow-hidden ${
-                    isOpen
-                        ? "max-h-72 border-white/10 pt-4 pb-6 opacity-100 translate-y-0 pointer-events-auto"
-                        : "max-h-0 border-transparent pt-0 pb-0 opacity-0 -translate-y-2 pointer-events-none"
-                }`}
-                aria-hidden={!isOpen}
-            >
-                {links.map((link, index) => (
-                    <a
-                        key={link.href}
-                        href={link.href}
-                        className={`block translate-y-2 text-gray-200 transition-all duration-300 ease-out ${
-                            isOpen ? "translate-y-0 opacity-100" : "opacity-0"
-                        } hover:text-[#2e9faa]`}
-                        style={{ transitionDelay: `${index * 60}ms` }}
-                        tabIndex={isOpen ? 0 : -1}
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border shadow-2xl md:hidden"
                     >
-                        {link.label}
-                    </a>
-                ))}
-            </div>
-        </nav>
+                        <div className="flex flex-col items-center py-8 gap-6">
+                            {links.map((link) => (
+                                <a
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={(e) => handleScrollTo(e, link.href)}
+                                    className="text-lg font-medium text-muted-foreground hover:text-foreground"
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.nav>
     );
 }

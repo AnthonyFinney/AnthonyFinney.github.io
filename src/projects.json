@@ -1,0 +1,91 @@
+[
+  {
+    "title": "Animated Web Landing Page (GSAP & React)",
+    "description": "Built a responsive, animated landing page using GSAP (GreenSock Animation Platform) and React",
+    "longDescription": "Built a responsive, animated landing page using GSAP (GreenSock Animation Platform) and React. Followed best practices in animation timing, scroll triggers, and component structure. Based on the tutorial by JavaScript Mastery, with custom modifications to layout and styling.",
+    "features": ["Animation"],
+    "imageSrc": "/assets/Animated Web Landing Page (GSAP & React).png",
+    "tech": ["TypeScript", "React", "Tailwind CSS"],
+    "codeLink": "https://github.com/AnthonyFinney/gsap_learn",
+    "liveLink": "https://gsap-learn-pied.vercel.app/"
+  },
+  {
+    "title": "Perfume E-commerce Site",
+    "description": "Built a fully responsive perfume store with filtering, dynamic routing, and SEO optimization",
+    "longDescription": "Built a fully responsive perfume store with filtering, dynamic routing, and SEO optimization. Implemented clean UI/UX inspired by luxury branding. Deployed on Vercel.",
+    "features": [
+      "Authentication",
+      "Cart management",
+      "User role management",
+      "Product browsing"
+    ],
+    "imageSrc": "/assets/Perfume E-commerce Site.png",
+    "tech": [
+      "TypeScript",
+      "JavaScript",
+      "MongoDB",
+      "Zod",
+      "Next.js",
+      "Tailwind CSS"
+    ],
+    "codeLink": "https://github.com/AnthonyFinney/project_at",
+    "liveLink": "https://project-at-six.vercel.app/"
+  },
+  {
+    "title": "CAS Cal",
+    "description": "A professional Computer Algebra System (CAS)",
+    "longDescription": "A professional Computer Algebra System (CAS) for students. Symbolic math, graphing, Fourier visualization.",
+    "features": ["Calculadora CAS", "Gráficas", "Ecuaciones", "Matrices"],
+    "imageSrc": "/assets/Cal.png",
+    "tech": ["TypeScript", "React", "Tailwind CSS"],
+    "codeLink": "https://github.com/AnthonyFinney/project-cal",
+    "liveLink": "https://project-cal-eta.vercel.app/"
+  },
+  {
+    "title": "Moonboard Admin Dashboard",
+    "description": "An open-source admin dashboard template built with Next.js 15 and Shadcn/ui.",
+    "longDescription": "an open-source admin dashboard template built with Next.js 15 and Shadcn/ui components for scalable, user-friendly web apps.",
+    "features": [
+      "Authentication",
+      "Cart management",
+      "User role management",
+      "Product browsing",
+      "Accessible",
+      "Responsive"
+    ],
+    "imageSrc": "/assets/Board.png",
+    "tech": ["TypeScript", "Next.js", "Tailwind CSS"],
+    "codeLink": "https://github.com/AnthonyFinney/project-board",
+    "liveLink": "https://project-board-gilt.vercel.app/en/dashboards/analytics"
+  },
+  {
+    "title": "Perfume & Attar Image Prompt Generator",
+    "description": "Built a professional-grade image prompt generation",
+    "longDescription": "Built a professional-grade image prompt generation tool for luxury perfume and attar visualsusing AI.",
+    "features": [
+      "customizable settings for bottle style",
+      "customizable settings for camera angle",
+      "customizable settings for lighting, environment",
+      "exportable text prompts"
+    ],
+    "imageSrc": "/assets/Perfume & Attar Image Prompt Generator.png",
+    "tech": ["TypeScript", "Next.js", "Tailwind CSS"],
+    "codeLink": "https://github.com/AnthonyFinney/project_ad",
+    "liveLink": "https://project-ad-sepia.vercel.app/"
+  },
+  {
+    "title": "E-commerce Store In C#",
+    "description": "A fully functional ASP.NET Core Razor Pages web app.",
+    "longDescription": "A fully functional ASP.NET Core Razor Pages web app with features like authentication, cart management, product browsing and admin tools.",
+    "features": [
+      "Authentication",
+      "Cart management",
+      "User role management",
+      "Product browsing"
+    ],
+    "imageSrc": "",
+    "tech": ["C#", "JavaScript", "MySQL", "Entity Framework", "ASP.NET"],
+    "codeLink": "https://github.com/AnthonyFinney/sportsstore",
+    "liveLink": ""
+  }
+]
