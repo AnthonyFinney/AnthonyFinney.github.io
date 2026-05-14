@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 import projectsData from "../projects.json";
 
 interface Project {
@@ -13,7 +14,13 @@ interface Project {
 
 const projects: Project[] = projectsData;
 
-export default function Projects() {
+interface ProjectsProps {
+    limit?: number;
+}
+
+export default function Projects({ limit }: ProjectsProps) {
+    const displayProjects = limit ? projects.slice(0, limit) : projects;
+
     return (
         <section id="projects" className="py-24 px-6 border-t border-white/5 relative z-10 bg-black/20">
             <div className="container max-w-5xl mx-auto">
@@ -25,7 +32,7 @@ export default function Projects() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-                    {projects.map((proj, idx) => (
+                    {displayProjects.map((proj, idx) => (
                         <div key={idx} className="group flex flex-col bg-card/40 border border-white/5 rounded-2xl overflow-hidden hover:border-white/15 transition-colors">
                             
                             {/* Project Image */}
@@ -84,6 +91,17 @@ export default function Projects() {
                         </div>
                     ))}
                 </div>
+
+                {limit && projects.length > limit && (
+                    <div className="mt-16 flex justify-center">
+                        <Link 
+                            to="/projects" 
+                            className="px-8 py-3 rounded-full bg-white text-black text-sm font-medium hover:bg-gray-200 transition-colors"
+                        >
+                            View All Projects
+                        </Link>
+                    </div>
+                )}
 
             </div>
         </section>

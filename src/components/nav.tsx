@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -9,6 +10,9 @@ interface NavProps {
 export default function Nav({ className = "" }: NavProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
@@ -17,11 +21,19 @@ export default function Nav({ className = "" }: NavProps) {
 
     const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-            setIsOpen(false);
+        
+        if (location.pathname !== "/") {
+            navigate("/");
+            setTimeout(() => {
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        } else {
+            const target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: "smooth" });
         }
+        
+        setIsOpen(false);
     };
 
     const links = [
