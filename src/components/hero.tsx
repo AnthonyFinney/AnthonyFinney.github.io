@@ -1,4 +1,81 @@
 import { SiGithub, SiLinkedin, SiMaildotru } from "react-icons/si";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Text3D, Center, Float, Text } from "@react-three/drei";
+import { Suspense, useRef } from "react";
+import * as THREE from "three";
+
+function MouseFacingText() {
+    const textRef = useRef<THREE.Group>(null);
+    const target = new THREE.Vector3();
+
+    useFrame((state) => {
+        if (textRef.current) {
+            // Calculate a gentle target for the text to look at based on mouse
+            const x = (state.pointer.x * state.viewport.width) / 4;
+            const y = (state.pointer.y * state.viewport.height) / 4;
+            
+            // The camera is at z=5. We make the target slightly towards the camera but offset by mouse
+            target.set(x, y, 5); 
+            
+            // Smoothly look at target
+            const currentRotation = textRef.current.rotation.clone();
+            textRef.current.lookAt(target);
+            const targetRotation = textRef.current.rotation.clone();
+            
+            textRef.current.rotation.copy(currentRotation);
+            textRef.current.quaternion.slerp(
+                new THREE.Quaternion().setFromEuler(targetRotation),
+                0.05
+            );
+        }
+    });
+
+    return (
+        <group ref={textRef}>
+            <Center>
+                <Text3D
+                    font="/fonts/helvetiker_bold.typeface.json"
+                    size={0.3}
+                    height={0.05}
+                    curveSegments={12}
+                    bevelEnabled
+                    bevelThickness={0.01}
+                    bevelSize={0.01}
+                    bevelOffset={0}
+                    bevelSegments={3}
+                >
+                    Soshie A. Finney
+                    <meshStandardMaterial 
+                        color="#ffffff" 
+                        roughness={0.2} 
+                        metalness={0.1} 
+                        emissive="#202020"
+                        emissiveIntensity={2}
+                    />
+                </Text3D>
+            </Center>
+        </group>
+    );
+}
+
+function Scene() {
+    return (
+        <Canvas 
+            camera={{ position: [0, 0, 5], fov: 45 }} 
+            className="w-full h-full cursor-default"
+            style={{ background: "transparent" }}
+        >
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[5, 5, 5]} intensity={1} />
+            <spotLight position={[-5, 5, 5]} intensity={0.5} color="#8888ff" />
+            <Suspense fallback={null}>
+                <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+                    <MouseFacingText />
+                </Float>
+            </Suspense>
+        </Canvas>
+    );
+}
 
 interface HeroProps {
     imageSrc?: string;
@@ -28,9 +105,9 @@ export default function Hero({}: HeroProps) {
 
             <div className="relative z-10 text-center w-full max-w-5xl mx-auto flex flex-col items-center">
                 
-                <h1 className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw] font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 select-none pb-4">
-                    Soshie A. Finney
-                </h1>
+                <div className="w-full h-[150px] sm:h-[200px] md:h-[250px] flex items-center justify-center -my-4 z-20">
+                    <Scene />
+                </div>
                 
                 <p className="mt-6 md:mt-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-medium tracking-wide">
                     Full-stack developer shaping digital worlds with precision.
