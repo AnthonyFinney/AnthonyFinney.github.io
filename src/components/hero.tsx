@@ -32,17 +32,21 @@ function MouseFacingText() {
 
     return (
         <group ref={textRef}>
-            <Center>
+            <Center>            
                 <Text3D
-                    font="/fonts/helvetiker_bold.typeface.json"
-                    size={0.3}
-                    height={0.05}
-                    curveSegments={12}
-                    bevelEnabled
-                    bevelThickness={0.01}
-                    bevelSize={0.01}
-                    bevelOffset={0}
-                    bevelSegments={3}
+                font="/fonts/helvetiker_bold.typeface.json"
+                size={0.6}
+                height={0.12}
+                curveSegments={12}
+                bevelEnabled
+                bevelThickness={0.01}
+                bevelSize={0.01}
+                bevelOffset={0}
+                bevelSegments={3}
+                onUpdate={(self) => {
+                    self.geometry.computeBoundingBox();
+                    self.geometry.center();
+                }}
                 >
                     Soshie A. Finney
                     <meshStandardMaterial 
